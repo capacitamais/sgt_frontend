@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Colaboradores</title>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">App Gerenciamento</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Colaboradores</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4>Gerenciar Colaboradores</h4>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addColaboradorModal">Adicionar
+                Colaborador</button>
+        </div>
+
+        <!-- Tabela -->
+        <table class="table table-bordered table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Nome</th>
+                    <th>Cargo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Exemplo de linha -->
+                <tr>
+                    <td>
+                        <button class="btn btn-link text-decoration-none" data-bs-toggle="modal"
+                            data-bs-target="#viewColaboradorModal">João Silva</button>
+                    </td>
+                    <td>Analista</td>
+                    <td>
+                        <button class="btn btn-sm btn-info" data-bs-toggle="modal"
+                            data-bs-target="#trainingsModal">Treinamentos</button>
+                        <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                            data-bs-target="#editColaboradorModal">Editar</button>
+                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteColaboradorModal">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal: Adicionar Colaborador -->
+    <div class="modal fade" id="addColaboradorModal" tabindex="-1" aria-labelledby="addColaboradorModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addColaboradorModalLabel">Adicionar Colaborador</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="colaboradorNome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="colaboradorNome" placeholder="Digite o nome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="colaboradorCargo" class="form-label">Cargo</label>
+                            <input type="text" class="form-control" id="colaboradorCargo" placeholder="Digite o cargo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="colaboradorEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="colaboradorEmail"
+                                placeholder="Digite o e-mail">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Visualizar Colaborador -->
+    <div class="modal fade" id="viewColaboradorModal" tabindex="-1" aria-labelledby="viewColaboradorModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewColaboradorModalLabel">Detalhes do Colaborador</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Nome:</strong> João Silva</p>
+                    <p><strong>E-mail:</strong> joao.silvaexample.com</p>
+                    <p><strong>CPF:</strong> 123.456.789-00</p>
+                    <p><strong>Data de Nascimento:</strong> 10/01/1990</p>
+                    <p><strong>Data de Admissão:</strong> 01/01/2020</p>
+                    <p><strong>Cargo:</strong> Analista</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal: Editar Colaborador -->
+    <div class="modal fade" id="editColaboradorModal" tabindex="-1" aria-labelledby="editColaboradorModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editColaboradorModalLabel">Editar Colaborador</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="editColaboradorNome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="editColaboradorNome" value="João Silva">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editColaboradorEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="editColaboradorEmail"
+                                value="joao.silva@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editColaboradorCPF" class="form-label">CPF</label>
+                            <input type="text" class="form-control" id="editColaboradorCPF" value="12345678900"
+                                maxlength="11">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editColaboradorNascimento" class="form-label">Data de Nascimento</label>
+                            <input type="date" class="form-control" id="editColaboradorNascimento" value="1990-01-10">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editColaboradorAdmissao" class="form-label">Data de Admissão</label>
+                            <input type="date" class="form-control" id="editColaboradorAdmissao" value="2020-01-01">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editColaboradorDesligamento" class="form-label">Data de Desligamento</label>
+                            <input type="date" class="form-control" id="editColaboradorDesligamento"
+                                placeholder="Preencha se aplicável">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editColaboradorCargo" class="form-label">Cargo</label>
+                            <input type="text" class="form-control" id="editColaboradorCargo" value="Analista">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal: Confirmar Exclusão -->
+    <div class="modal fade" id="deleteColaboradorModal" tabindex="-1" aria-labelledby="deleteColaboradorModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteColaboradorModalLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza de que deseja excluir este colaborador?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Treinamentos Associados -->
+    <div class="modal fade" id="trainingsModal" tabindex="-1" aria-labelledby="trainingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="trainingsModalLabel">Treinamentos Associados</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <button class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#addTrainingRealizadoModal">Adicionar Treinamento</button>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Treinamento</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Exemplo de linha -->
+                            <tr>
+                                <td>1</td>
+                                <td>Segurança no Trabalho</td>
+                                <td>10/01/2023</td>
+                                <td>
+                                    <button class="btn btn-sm btn-danger">Remover</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Adicionar Treinamento Realizado -->
+    <div class="modal fade" id="addTrainingRealizadoModal" tabindex="-1"
+        aria-labelledby="addTrainingRealizadoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTrainingRealizadoModalLabel">Atribuir Treinamento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="trainingSelect" class="form-label">Treinamento</label>
+                            <select class="form-select" id="trainingSelect">
+                                <option value="1">Segurança no Trabalho</option>
+                                <option value="2">Primeiros Socorros</option>
+                                <option value="3">Gestão de Projetos</option>
+                                <!-- Popule esta lista dinamicamente no backend -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="trainingDate" class="form-label">Data de Realização</label>
+                            <input type="date" class="form-control" id="trainingDate">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Salvar Treinamento</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
