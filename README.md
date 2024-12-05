@@ -51,6 +51,6 @@ Acesse o repositório do backend: https://github.com/jonatasrossetto/sgt_backend
 
 ### Telas implementadas
 
-- 
+- https://github.com/jonatasrossetto/sgt_frontend/blob/main/printTelas20241205.pdf
 
 
