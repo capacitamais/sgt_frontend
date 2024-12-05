@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+</head>
+
+<body class="d-flex align-items-center justify-content-center vh-100 bg-light">
+
+    <!-- Tela de Login -->
+    <div class="card shadow-sm p-4" style="width: 100%; max-width: 500px;">
+        <h2 class="mb-4 text-center">SGT</h2>
+        <h4 class="mb-4 text-center">Sistema de Gestão de Treinamentos</h4>
+        <h4 class="mb-4 text-center">Entrar no Sistema</h4>
+        <form>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite seu email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" (click)="goHome($event)">Entrar</button>
+        </form>
+        <div class="text-center mt-3">
+            <p class="mb-0">Não tem uma conta?
+                <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registre-se</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrar-se no Sistema</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="registerName" placeholder="Digite seu nome"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="Digite seu email"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerConfirmEmail" class="form-label">Confirme o Email</label>
+                            <input type="email" class="form-control" id="registerConfirmEmail"
+                                placeholder="Confirme seu email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="registerPassword"
+                                placeholder="Digite sua senha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Confirme a Senha</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword"
+                                placeholder="Confirme sua senha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerType" class="form-label">Tipo de Usuário</label>
+                            <select id="registerType" class="form-select" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Usuário">Usuário</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerCPF" class="form-label">CPF (Opcional)</label>
+                            <input type="text" class="form-control" id="registerCPF" placeholder="Digite seu CPF">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

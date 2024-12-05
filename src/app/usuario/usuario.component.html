@@ -9,22 +9,8 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Gestão de Usuários</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <!-- <li class="nav-item"><a class="nav-link" href="#">Início</a></li> -->
-                    <li class="nav-item"><a class="nav-link active" href="#">Usuários</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <app-navbar></app-navbar>
+    <h6 class="mt-0">Home - Gerenciar Usuários</h6>
 
     <!-- Conteúdo Principal -->
     <div class="container my-4">
@@ -43,16 +29,16 @@
             </thead>
             <tbody>
                 <!-- Exemplo de linha -->
-                <tr>
-                    <td>1</td>
-                    <td>Maria Silva</td>
-                    <td>maria.silva&example.com</td>
-                    <td>Admin</td>
+                <tr *ngFor="let dado of usuarios">
+                    <td>{{dado.user_id}}</td>
+                    <td>{{dado.nome}}</td>
+                    <td>{{dado.email}}</td>
+                    <td>{{dado.tipo}}</td>
                     <td>
                         <button class="btn btn-sm btn-warning me-2" data-bs-toggle="modal"
-                            data-bs-target="#editUserModal">Editar</button>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#deleteUserModal">Excluir</button>
+                            data-bs-target="#editUserModal" (click)="selectedIdBtn(dado.user_id)">Editar</button>
+                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal"
+                            (click)="selectedIdBtn(dado.user_id)">Excluir</button>
                     </td>
                 </tr>
             </tbody>
@@ -108,11 +94,15 @@
                     <form>
                         <div class="mb-3">
                             <label for="editUserName" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="editUserName" value="Maria Silva">
+                            <!-- <input type="text" class="form-control" id="editUserName" value="Maria Silva"> -->
+                            <input [(ngModel)]="selectedUser.nome" name="nome" class="form-control" id="editUserName"
+                                value="{{selectedUser.nome}}">
                         </div>
                         <div class="mb-3">
                             <label for="editUserEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="editUserEmail" value="maria.silva@example.com">
+                            <!-- <input type="email" class="form-control" id="editUserEmail" value="maria.silva@example.com"> -->
+                            <input [(ngModel)]="selectedUser.email" name="email" class="form-control" id="editUserEmail"
+                                value="{{selectedUser.email}}">
                         </div>
                         <div class="mb-3">
                             <label for="editUserType" class="form-label">Tipo</label>
@@ -123,7 +113,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="editUserCPF" class="form-label">CPF</label>
-                            <input type="text" class="form-control" id="editUserCPF" value="12345678900" maxlength="11">
+                            <input [(ngModel)]="selectedUser.cpf" name="cpf" type="text" class="form-control"
+                                id="editUserCPF" value="{{selectedUser.cpf}}" maxlength="11">
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Salvar Alterações</button>
                     </form>
