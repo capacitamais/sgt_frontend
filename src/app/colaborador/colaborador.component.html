@@ -31,19 +31,22 @@
             </thead>
             <tbody>
                 <!-- Exemplo de linha -->
-                <tr>
+                <tr *ngFor="let dado of colaboradores">
                     <td>
                         <button class="btn btn-link text-decoration-none" data-bs-toggle="modal"
-                            data-bs-target="#viewColaboradorModal">João Silva</button>
+                            data-bs-target="#viewColaboradorModal"
+                            (click)="selectedIdBtn(dado.colaborador_id)">{{dado.nome}}</button>
                     </td>
-                    <td>Analista</td>
+                    <td>{{dado.cargo}}</td>
                     <td>
-                        <button class="btn btn-sm btn-info me-2" data-bs-toggle="modal"
-                            data-bs-target="#trainingsModal">Treinamentos</button>
+                        <button class="btn btn-sm btn-info me-2" data-bs-toggle="modal" data-bs-target="#trainingsModal"
+                            (click)="selectedIdBtn(dado.colaborador_id)">Treinamentos</button>
                         <button class="btn btn-sm btn-warning me-2" data-bs-toggle="modal"
-                            data-bs-target="#editColaboradorModal">Editar</button>
+                            data-bs-target="#editColaboradorModal"
+                            (click)="selectedIdBtn(dado.colaborador_id)">Editar</button>
                         <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#deleteColaboradorModal">Excluir</button>
+                            data-bs-target="#deleteColaboradorModal"
+                            (click)="selectedIdBtn(dado.colaborador_id)">Excluir</button>
                     </td>
                 </tr>
             </tbody>
@@ -91,12 +94,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p><strong>Nome:</strong> João Silva</p>
-                    <p><strong>E-mail:</strong> joao.silvaexample.com</p>
-                    <p><strong>CPF:</strong> 123.456.789-00</p>
-                    <p><strong>Data de Nascimento:</strong> 10/01/1990</p>
-                    <p><strong>Data de Admissão:</strong> 01/01/2020</p>
-                    <p><strong>Cargo:</strong> Analista</p>
+                    <p><strong>Nome:</strong> {{selectedColaborador.nome}}</p>
+                    <p><strong>E-mail:</strong> {{selectedColaborador.email}}</p>
+                    <p><strong>CPF:</strong> {{selectedColaborador.cpf}}</p>
+                    <p><strong>Data de Nascimento:</strong> {{selectedColaborador.nascimento}}</p>
+                    <p><strong>Data de Admissão:</strong> {{selectedColaborador.admissao}}</p>
+                    <p><strong>Cargo:</strong> {{selectedColaborador.cargo}}</p>
                 </div>
             </div>
         </div>
